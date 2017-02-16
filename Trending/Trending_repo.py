@@ -42,5 +42,3 @@ def getRepo(url):
     print t
 
 
-url = "https://github.com/trending?since=daily"
-getRepo(url)

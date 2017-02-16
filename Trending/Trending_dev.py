@@ -34,6 +34,5 @@ def getDev(url):
 
     print t
 
-url = "https://github.com/trending/developers?since=daily"
-getDev(url)
+
 
