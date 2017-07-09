@@ -6,7 +6,15 @@ from prettytable import PrettyTable
 from color_code import color
 
 
-def getDev(url):
+def getDev(dic):
+
+    if dic["lang"] != "all":
+        url = "https://github.com/trending/developers/" + str(dic["lang"]) + "?since=" + str(dic["time"])
+    else:
+        url = "https://github.com/trending/developers?since=" + str(dic["time"])
+
+    # print url
+
     dev_file = urllib2.urlopen(url)
     dev_html = dev_file.read()
     dev_file.close()
@@ -15,7 +23,7 @@ def getDev(url):
 
     name = []
 
-    for h2 in soup.find_all("h2", attrs={"class" : "user-leaderboard-list-name"}):
+    for h2 in soup.find_all("h2", attrs={"class" : "f3 text-normal"}):
         for a in h2.find_all("a"):
             name.append(a.contents[0])
 
