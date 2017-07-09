@@ -6,7 +6,15 @@ from prettytable import PrettyTable
 from color_code import color
 
 
-def getRepo(url):
+def getRepo(dic):
+
+    if dic["lang"] != "all" :
+        url = "https://github.com/trending/" + str(dic["lang"]) + "?since=" + str(dic["time"])
+    else:
+        url = "https://github.com/trending?since=" + str(dic["time"])
+
+    # print url
+
     repo_file = urllib2.urlopen(url)
     repo_html = repo_file.read()
     repo_file.close()
