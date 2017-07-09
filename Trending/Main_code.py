@@ -3,6 +3,7 @@ import Trending_repo as tr
 import Trending_dev as td
 import Github_user as gu
 
+
 @click.command()
 @click.option('--repo', '-r', is_flag=True, help="Lists the trending repositories.")
 @click.option('--dev', '-d', is_flag=True, help="Lists the trending developers.")
@@ -10,6 +11,9 @@ import Github_user as gu
 
 
 def cli(repo,dev,username):
+
+    dic = {}
+
     if repo:
         url = "https://github.com/trending?since=daily"
         tr.getRepo(url)
