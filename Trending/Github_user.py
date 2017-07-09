@@ -16,9 +16,11 @@ Following = color.GREEN + color.BOLD + "Following" + color.END
 sequence = [Username, Repositories, Stars, Followers, Following]
 
 
-def getDetails(x):
+def getDetails(dic):
 
-    url = "https://github.com/" + x
+    url = "https://github.com/" + str(dic["username"])
+
+    # print url
 
     user_file = urllib2.urlopen(url)
     user_html = user_file.read()
@@ -27,13 +29,14 @@ def getDetails(x):
     soup = BeautifulSoup(user_html, 'html.parser')
 
     # Find all occurrences of the needed span class
-    data = soup.find_all('span', attrs={'class': 'counter'})
+    data = soup.find_all('span', attrs={'class': 'Counter'})
 
     l=[]
-    l.append(x)
+    l.append(str(dic["username"]))
 
     for i in data:
-        l.append(i.string)
+        l.append(i.text)
+
 
     # Strip useless text from list elements
     l = map(lambda s: s.strip(), l)

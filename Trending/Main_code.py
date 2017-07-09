@@ -2,28 +2,40 @@ import click
 import Trending_repo as tr
 import Trending_dev as td
 import Github_user as gu
+import sys
 
 
-@click.command()
-@click.option('--repo', '-r', is_flag=True, help="Lists the trending repositories.")
-@click.option('--dev', '-d', is_flag=True, help="Lists the trending developers.")
-@click.option('--username', '-user', default="dushyantRathore", help='Lists the details of a user on Github')
-
-
-def cli(repo,dev,username):
+def cli():
+    x = sys.argv
 
     dic = {}
 
-    if repo:
-        url = "https://github.com/trending?since=daily"
-        tr.getRepo(url)
+    # For trending repositories
 
-    elif dev:
-        url = "https://github.com/trending/developers?since=daily"
-        td.getDev(url)
+    type = x[1].lower()
 
-    elif username:
-        gu.getDetails(username)
+    if type == "--repo":
+
+        dic["type"] = "repo"
+        dic["time"] = x[3]
+        dic["lang"] = x[5]
+
+        tr.getRepo(dic)
+
+    elif type == "--dev":
+        dic["type"] = "dev"
+        dic["time"] = x[3]
+        dic["lang"] = x[5]
+
+        td.getDev(dic)
+
+    elif type == "--user":
+        dic["username"] = x[2]
+
+        gu.getDetails(dic)
+
+
+    # print dic
 
 
 if __name__ == '__main__':
