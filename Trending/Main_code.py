@@ -8,6 +8,8 @@ import sys
 def cli():
     x = sys.argv
 
+    print x
+
     dic = {}
 
     # For trending repositories
@@ -17,15 +19,15 @@ def cli():
     if type == "--repo":
 
         dic["type"] = "repo"
-        dic["time"] = x[3]
-        dic["lang"] = x[5]
+        dic["time"] = x[2]
+        dic["lang"] = x[3]
 
         tr.getRepo(dic)
 
     elif type == "--dev":
         dic["type"] = "dev"
-        dic["time"] = x[3]
-        dic["lang"] = x[5]
+        dic["time"] = x[2]
+        dic["lang"] = x[3]
 
         td.getDev(dic)
 
@@ -34,8 +36,6 @@ def cli():
 
         gu.getDetails(dic)
 
-
-    # print dic
 
 
 if __name__ == '__main__':
