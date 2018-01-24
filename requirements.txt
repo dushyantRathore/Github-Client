@@ -1,6 +1,2 @@
-requests
 beautifulsoup4
-pandas
-numpy
 prettytable
-click
