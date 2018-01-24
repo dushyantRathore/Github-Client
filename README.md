@@ -9,10 +9,12 @@ A cli which lists user details, trending repositories and developers from Github
     * `--repo <time> <language>` to get the trending repositories.
     * `--dev <time> <language>` to get the trending developers.
 <br><br>
+
 **Requirements**
 * beautifulsoup4
 * prettytable
 <br><br>
+
 **Screenshot**
-<br>
+<br><br>
 ![screenshot](https://user-images.githubusercontent.com/17358196/35350096-d476164c-0162-11e8-9eaa-50172945966a.png)
