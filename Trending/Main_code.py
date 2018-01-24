@@ -8,7 +8,7 @@ import sys
 def cli():
     x = sys.argv
 
-    print x
+    # print x
 
     dic = {}
 

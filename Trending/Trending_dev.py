@@ -1,7 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
 import urllib2
-import pandas as pd
 from prettytable import PrettyTable
 from color_code import color
 
